@@ -1,0 +1,57 @@
+menu "RCSWITCH config"
+
+config RCSWITCH_RMT_DIVIDER
+    int "RMT divider"
+    default 100
+    range 1 255
+    help
+        The clock divider to use for the remote module
+
+config RCSWITCH_RMT_TXCHANNEL
+	int "Tx RMT channel"
+	default 0
+	range 0 7
+	help
+		Sets the remote channel to use for tx. Do not collide with rx channel.
+
+config RCSWITCH_RMT_TXMEM
+	int "Tx RMT number of memory blocks"
+	default 1
+	range 1 8
+	help
+		Sets the number of memory blocks used for the tx channel.
+		Remember that a number greater 1 will occupy the memory of
+		the next channel.
+		
+config RCSWITCH_RMT_TXGPIO
+	int "Tx GPIO number"
+	default 18
+	range 0 33
+	help
+		Sets the GPIO the transmitter is connected to.
+		GPIOs above 33 are input only and therefore not usable as output
+
+config RCSWITCH_RMT_RXCHANNEL
+	int "Rx RMT channel"
+	default 4
+	range 0 7
+	help
+		Sets the remote channel to use for rx. Do not collide with tx channel.
+
+config RCSWITCH_RMT_RXMEM
+	int "Rx RMT number of memory blocks"
+	default 4
+	range 1 8
+	help
+		Sets the number of memory blocks used for the rx channel.
+		Remember that a number greater 1 will occupy the memory of
+		the next channel.
+
+config RCSWITCH_RMT_RXGPIO
+	int "Rx GPIO number"
+	default 19
+	range 0 39
+	help
+		Sets the GPIO the receiver is connected to.
+endmenu
+		
